@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "546092704295",
+    "firebase_url": "https://cuts-n-plows.firebaseio.com",
+    "project_id": "cuts-n-plows",
+    "storage_bucket": "cuts-n-plows.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546092704295:android:c717811d4ebc87ed0c2402",
+        "android_client_info": {
+          "package_name": "Com.app.cuts.plows"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546092704295-v8mi61mlkoug45o3oithlqklrgq57isn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_WksQvZGOz0CYOJPKpLKwHPcrUZkeXKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546092704295-v8mi61mlkoug45o3oithlqklrgq57isn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

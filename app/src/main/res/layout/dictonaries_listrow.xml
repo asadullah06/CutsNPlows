@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profileImageCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/providerProfilePicture"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/image_placeholder" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/providerNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/poppins_light300"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/profileImageCardView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Daniel Ameotang" />
+
+        <TextView
+            android:id="@+id/providerRoleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/poppins_light300"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/profileImageCardView"
+            app:layout_constraintTop_toBottomOf="@+id/providerNameTextView"
+            tools:text="Provider" />
+
+        <ImageView
+            android:id="@+id/messageProviderImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_message_green"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/callProviderImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/callProviderImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_call_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/providerDistanceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light300"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/callProviderImageView"
+            app:layout_constraintTop_toBottomOf="@+id/callProviderImageView" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sendRequestButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/light_green"
+            android:fontFamily="@font/poppins_light300"
+            android:text="@string/send_request"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:cornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/providerDistanceTextView"
+            app:layout_constraintTop_toBottomOf="@+id/providerDistanceTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageCardView" />
+</LinearLayout>

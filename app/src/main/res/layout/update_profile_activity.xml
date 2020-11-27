@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="70dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="@color/white">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="70dp"
+                app:cardElevation="5dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@color/green"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image_placeholder" />
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/firstNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/button_background"
+        android:drawableStart="@drawable/ic_name"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_light300"
+        android:hint="@string/enter_your_first_name"
+        android:inputType="textEmailAddress"
+        android:paddingStart="30dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/light_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/lastNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_background"
+        android:drawableStart="@drawable/ic_name"
+        android:drawablePadding="20dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_light300"
+        android:hint="@string/enter_your_last_name"
+        android:inputType="text"
+        android:paddingStart="30dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/light_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameEditText" />
+
+    <LinearLayout
+        android:id="@+id/phoneNumberLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/poppins_light300"
+        android:hint="@string/number_placeholder"
+        android:paddingStart="12dp"
+        android:paddingTop="7dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameEditText">
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/countryPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            app:ccpDialog_initialScrollToSelection="true"
+            app:ccpDialog_textColor="@color/black"
+            app:ccp_arrowColor="@color/white"
+            app:ccp_arrowSize="20dp"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_contentColor="@color/white"
+            app:ccp_countryAutoDetectionPref="SIM_ONLY"
+            app:ccp_textSize="16sp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextMobileNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="5dp"
+            android:background="@color/green"
+            android:ems="10"
+            android:fontFamily="@font/poppins_light300"
+            android:hint="@string/number_placeholder"
+            android:inputType="phone"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/light_gray"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/updateProfileButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/light_green"
+        android:fontFamily="@font/poppins_light300"
+        android:paddingStart="30dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="15dp"
+        android:text="@string/update_profile"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:cornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberLayout"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,243 @@
+<resources>
+    <string name="app_name">Cuts’N’Plows</string>
+    <string name="create_account_with_email">Create account with email</string>
+    <string name="signup_with_facebook">Signup with facebook</string>
+    <string name="welcome_title">Welcome to cuts’n’plows</string>
+    <string name="welcome_description">Sign in now and you will be able to connect with verified lawn and snow removal service vendors near you!</string>
+    <string name="required_signup_text">Don’t have an account?\nSign up?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="remember_me_and_keep_me_logged_in">Remember me and keep me logged in.</string>
+    <string name="reset_password_question">Reset password?</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="we_hope_you_ve_been_enjoying_our_services">We hope you’ve been enjoying our services.</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="let_s_get_started">Let’s Get Started!</string>
+    <string name="registration_description">Signup now and you will be able to connect with verified lawn and snow removal service vendors near you!</string>
+    <string name="number_placeholder">345 987 65 43</string>
+    <string name="terms_and_condition_check">By signing you agree to the Terms and Conditions</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_in_question">Sign in?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="forget_password_description">Enter your email and we’ll send you\ninstructions on how to reset your password.</string>
+    <string name="reset_password">Reset password</string>
+    <string name="date">Date</string>
+    <string name="budget">Budget</string>
+    <string name="status">Status</string>
+    <string name="get_roles_heading">Select Your Role in Cuts’n’Plows</string>
+    <string name="proceed">Proceed</string>
+    <string name="customer">Customer</string>
+    <string name="service_provider">Service Provider</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="subscription">Subscription</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="about_us">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="copy_right_text">©cuts’n’plows 2020</string>
+    <string name="splash_description">Need a Cut of your lawn or a Plow of your driveway? Sign up now and you will be able to connect with verified lawn and snow removal service vendors near you!</string>
+    <string name="cuts_n_plows">cuts’n’plows</string>
+    <string name="submit">Submit</string>
+    <string name="old_password">Old Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="new_password">New Password</string>
+    <string name="password">Password</string>
+    <string name="update_password">Update password</string>
+    <string name="enter_your_first_name">Enter your first name</string>
+    <string name="enter_your_last_name">Enter your last name</string>
+    <string name="terms_and_conditions_content">The following Terms and Conditions govern and apply to your use of or reliance upon
+this website and mobile app maintained by Cuts and Plows (https://cutsandplows.com/).
+Your access or use of the Website and mobile app indicates that you have read, understand and agree
+to be bound by these Terms and Conditions and any other applicable laws, statutes
+and/or regulations. We may change these Terms and Conditions at any time without
+notice, effective upon its posting to the Website. Your continued use of the Website and mobile app will
+be considered your acceptance to the revised Terms and Conditions.\n\n
+
+        <b>1. AGE RESTRICTION</b>\n
+You must be at least eighteen (18) years of age to use this Website and mobile app or any services
+contained herein. Your access or use of this Website and mobile app indicates your representation that
+you are at least eighteen (18) years of age. We assume no responsibility or liability for
+any misrepresentation of your age. <br />\n
+        <b>2. INTELLECTUAL PROPERTY</b>\n
+All intellectual property on the Website and mobile app (except for User Generated Content, as defined
+below) is owned by us or our licensors, which includes materials protected by copyright,
+trademark, or patent laws. All trademarks, service marks and trade names are owned,
+registered and/or licensed by us. All content on the Website and mobile app (except for User Generated
+Content, as defined below), including but not limited to text, software, code, designs,
+graphics, photos, sounds, music, videos, applications, interactive features and all other
+content is a collective work under Canadian and other copyright laws and is the
+proprietary property of the Company; All rights reserved.\n\n
+
+
+        <b>3. USE OF COMPANY MATERIALS</b>\n
+We may provide you with certain information as a result of your use of the Website
+including, but not limited to, documentation, data, or information developed by us, and
+other materials which may assist in the use of the Website and mobile app or Services ("Company
+Materials"). The Company Materials may not be used for any other purpose than the use
+of this Website and mobile app and the services offered on the Website. Nothing in these Terms of Use
+may be interpreted as granting any licence of intellectual property rights to you.\n\n
+
+        <b>4. USER GENERATED CONTENT</b>\n
+"User Generated Content" is communications, materials, information, data, opinions,
+photos, profiles, messages, notes, website and mobile app links, text information, music, videos,
+designs, graphics, sounds, and any other content that you and/or other Website and mobile app users
+post or otherwise make available on or through the Website, except to the extent the
+content is owned by us.\n\n
+
+        <b>5. ACCOUNT AND ACCOUNT USE</b>\n
+If your use of the Website and mobile app requires an account identifying you as a user of the Website
+(an "Account"):\n\n
+a) you are solely responsible for your Account and the maintenance, confidentiality
+and security of your Account and all passwords related to your Account, and any
+and all activities that occur under your Account, including all activities of any
+persons who gain access to your Account with or without your permission;\n
+b) you agree to immediately notify us of any unauthorized use of your Account, any
+service provided through your Account or any password related to your Account, or
+any other breach of security with respect to your Account or any service provided
+through it, and you agree to provide assistance to us, as requested, to stop or
+remedy any breach of security related to your Account, and\n
+c) you agree to provide true, current, accurate and complete customer information
+as requested by us from time to time and you agree to promptly notify us of any
+changes to this information as required to keep such information held by us current,
+complete and accurate.\n\n
+
+        <b>6. AFFILIATE MARKETING &amp; ADVERTISING</b>\n
+We, through the Website and mobile app and its services, may engage in affiliate marketing whereby we
+receive a commission on or percentage of the sale of goods or services on or through
+the Website. We may also accept advertising and sponsorships from commercial
+businesses or receive other forms of advertising compensation.\n\n
+
+        <b>7. ACCEPTABLE USE</b>\n
+You agree not to use the Website and mobile app for any unlawful purpose, or any purpose prohibited
+under this clause. You agree not to use the Website and mobile app in any way that could damage the
+Website, the services or the general business of Cuts and Plows.
+You further agree not to use and/or access the Website:\n
+a) To harass, abuse, or threaten others or otherwise violate any person\'s legal
+rights;\n
+b) To violate any intellectual property rights of us or any third party;\n
+c) To upload or otherwise disseminate any computer viruses or other software that
+may damage the property of another;\n
+d) To perpetrate any fraud;\n
+e) To engage in or create any unlawful gambling, sweepstakes, or pyramid scheme;\n
+f) To publish or distribute any obscene or defamatory material;\n
+g) To publish or distribute any material that incites violence, hate or discrimination
+towards any group;\n
+h) To unlawfully gather information about others.\n\n
+        <b>8. PROTECTION OF PRIVACY</b>\n
+Through your use of the Website, you may provide us with certain information. By using
+the Website, you authorize us to use your information in Canada and any other country
+where We may operate.\n
+When you register for an account, you provide us with a valid email address and may
+provide us with additional information, such as your name and/or billing information.\n
+
+Depending on how you use our Website, we may also receive information from external
+applications you use to access our Website, or we may receive information through
+various web technologies, such as cookies, log files, clear gifs, web beacons or others.
+We use the information gathered from you to ensure your continued good experience on
+our website, including through email communication. We may also track certain of the
+passive information received to improve our marketing and analytics, and for this, we
+may work with third-party providers.\n
+If you would like to disable our access to any passive information we receive from the
+use of various technologies, you may choose to disable cookies in your web browser.
+Please be aware that we will still receive information about you that you have provided,
+such as your email address.\n
+If you choose to terminate your account, we will store information about you for the
+following period of time: 1 Month. After that time, all information about you will be
+deleted.\n\n
+        <b>9. REVERSE ENGINEERING &amp; SECURITY</b>\n
+You may not undertake any of the following actions:\n
+a) Reverse engineer, or attempt to reverse engineer or disassemble any code or
+software from or on the Website;\n
+b) Violate the security of the Website and mobile app through any unauthorized access, circumvention of
+encryption or other security tools, data mining or interference to any host, user or
+network.\n\n
+        <b>10. DATA LOSS</b>\n
+We are not responsible for the security of your Account or Content. Your use of the
+Website and mobile app is at your own risk.\n\n
+        <b>11. INDEMNIFICATION</b>\n
+You defend and indemnify Cuts and Plows and any of its affiliates and hold us
+harmless against any and all legal claims and demands, including reasonable attorney\'s
+fees, which may arise from or relate to your use or misuse of the Website, your breach
+of these Terms and Conditions, or your conduct or actions. We will select our own legal
+counsel and may participate in our own defense if we wish to so.\n\n
+        <b>12. SPAM POLICY</b>\n
+You are strictly prohibited from using the Website and mobile app or any of our services for illegal spam
+activities, including gathering email addresses and personal information from others or
+sending any mass commercial emails.\n\n
+        <b>13. THIRD-PARTY LINKS &amp; CONTENT</b>\n
+We may occasionally post links to third party websites or other services. We are not
+responsible or liable for any loss or damage caused as a result of your use of any third
+party services linked to from our Website.\n\n
+        <b>14. VARIATION</b>\n
+To the extent any part or sub-part of these Terms and Conditions is held ineffective or
+invalid by any court of law, the prior, effective version of these Terms and Conditions be
+Fully considered enforceable and valid.\n\n
+        <b>15. SERVICE INTERRUPTIONS</b>\n
+We may need to interrupt your access to the Website and mobile app to perform maintenance or
+emergency services on a scheduled or unscheduled basis. You agree that your access
+to the Website and mobile app may be affected by unanticipated or unscheduled downtime, for any
+reason, but that the we will have no liability for any damage or loss caused as a result of
+such downtime.\n\n
+        <b>16. TERMINATION OF ACCOUNT</b>\n
+We may, in our sole discretion, suspend, restrict or terminate your Account and your use
+of the Website, effective at any time, without notice to you, for any reason, including
+because the operation or efficiency of the Website and mobile app or our or any third party\'s equipment
+or network is impaired by your use of the Website, any amount is past due from you to
+us, we have received a third-party complaint which relates to your use or misuse of the
+Website, or you have been or are in breach of any term or condition of these Terms and
+Conditions. We will have no responsibility to notify any third party, including any third-party providers of services, merchandise or information, of any suspension, restriction or
+termination of your access to the Website.\n\n
+        <b>17. NO WARRANTIES</b>\n
+Your use of the Website and mobile app is at your sole and exclusive risk and any services provided by
+us are on an "as is" basis. We disclaim any and/or all express or implied warranties of any
+kind, including, but not limited to the implied warranty of fitness for a particular purpose
+and the implied warranty of merchantability. We make no warranties that the Website
+will meet your needs or that the Website and mobile app will be uninterrupted, error-free, or secure. We
+also make no warranties as to the reliability or accuracy of any information on the
+Website and mobile app or obtained through the Services. Any damage that may occur to you, through
+your computer system, or as a result of loss of your data from your use of the Website and mobile app is
+your sole responsibility and we are not liable for any such damage or loss.\n\n
+        <b>18. PRIVACY</b>\n
+Internet communications are subject to interception, loss or alteration and, as
+consequences, you acknowledge that information or data you provide by electronic
+means by accessing or using this Website and mobile app are not confidential or exclusive, except to the
+extent required by the applicable laws, and that communications by email may be
+intercepted, altered or lost.\n
+For more information, please refer to our Privacy Policy, which you may find at the
+following address: http://www.cutsandplows.com/privacy.\n\n
+        <b>19. LIMITATION ON LIABILITY</b>\n
+We are not liable for any damages that may occur to you as a result of your use of the
+Website, to the fullest extent permitted by law. The maximum liability of Cuts and Plows arising from your use of the Website and mobile app is limited to the greater of one hundred
+($100) Canadian Dollars or the amount you paid to Cuts and Plows in the last six (6)
+months. This applies to any and all claims by you, including, but not limited to, lost
+profits or revenues, consequential or punitive damages, negligence, strict liability, fraud or torts of any
+kind.</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="capture_image">Capture image</string>
+    <string name="take_from_gallery">take from gallery</string>
+    <string name="cuts_n_plows_directory">Cuts’n’Plows Directory</string>
+    <string name="search_provider">Search Provider</string>
+    <string name="no_record_found">No record found</string>
+    <string name="not_available">Not Available</string>
+    <string name="available">Available</string>
+    <string name="find_provider">Find Providers</string>
+    <string name="provider">Provider</string>
+    <string name="arrived">Arrived</string>
+    <string name="navigate">Navigate</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="start_job">Start job</string>
+    <string name="day_s">Day(s)</string>
+    <string name="hour_s">Hour(s)</string>
+    <string name="minute_s">Minute(s)</string>
+    <string name="end_job">End job</string>
+    <string name="finish_job">Finish job</string>
+    <string name="_00">00</string>
+    <string name="default_notification_channel_id">00</string>
+    <string name="msg_token_fmt">fcm_token</string>
+    <string name="send_request">Send request</string>
+    <string name="fcm_message">Notification title</string>
+    <string name="view_found_providers">View found providers</string>
+    <string name="close_booking">cancel search provider(s)</string>
+    <string name="process">Process</string>
+    <string name="write_a_review">Write a review?</string>
+</resources>

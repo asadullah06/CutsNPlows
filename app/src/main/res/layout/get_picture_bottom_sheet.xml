@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/captureImageButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:elevation="0dp"
+        android:fontFamily="@font/poppins_light300"
+        android:padding="10dp"
+        android:text="@string/capture_image"
+        android:textAllCaps="false"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/light_gray"
+        app:strokeWidth="1sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/takeFromGalleryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:elevation="0dp"
+        android:fontFamily="@font/poppins_light300"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/take_from_gallery"
+        android:textAllCaps="false"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/captureImageButton"
+        app:strokeColor="@color/light_gray"
+        app:strokeWidth="1sp" />
+
+</LinearLayout>
