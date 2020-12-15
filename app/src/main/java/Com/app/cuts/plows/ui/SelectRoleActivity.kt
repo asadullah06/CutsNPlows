@@ -3,15 +3,21 @@ package Com.app.cuts.plows.ui
 import Com.app.cuts.plows.NetworkCalls.ApiClient
 import Com.app.cuts.plows.NetworkCalls.ApiInterface
 import Com.app.cuts.plows.R
+import Com.app.cuts.plows.databinding.EnterBioDialogBinding
+import Com.app.cuts.plows.databinding.SelectRadiousDialogBinding
 import Com.app.cuts.plows.databinding.SelectRoleActivityBinding
 import Com.app.cuts.plows.ui.Dashboard.HomeScreenActivity
 import Com.app.cuts.plows.utils.UserPreferences
+import android.app.Dialog
 import android.content.Intent
 import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.Window
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.gms.tasks.OnCompleteListener
@@ -110,13 +116,16 @@ class SelectRoleActivity : BaseActivity(), View.OnClickListener {
             }
             R.id.proceedButton -> {
                 if (selectedRole != -1) {
-                    registerUserAPI()
+                    if (selectedRole == 2)
+                        showEnterBioDialog()
+                    else
+                        registerUserAPI("")
                 }
             }
         }
     }
 
-    private fun registerUserAPI() {
+    private fun registerUserAPI(userBio: String) {
 
         getFCMToken()
         val apiService = ApiClient.getClient(this)?.create(ApiInterface::class.java)
@@ -128,6 +137,7 @@ class SelectRoleActivity : BaseActivity(), View.OnClickListener {
             intent.getStringExtra("user_password") ?: "",
             intent.getStringExtra("user_confirm_password") ?: "",
             selectedRole,
+            userBio,
             deviceFCMToken
         )
         binding.progressBar.visibility = View.VISIBLE
@@ -177,7 +187,6 @@ class SelectRoleActivity : BaseActivity(), View.OnClickListener {
                 binding.progressBar.visibility = View.GONE
                 Log.d(TAG, "Error Message: " + throwable.localizedMessage ?: "")
             }
-
         })
     }
 
@@ -189,12 +198,28 @@ class SelectRoleActivity : BaseActivity(), View.OnClickListener {
                     Log.w(TAG, "Fetching FCM registration token failed", task.exception)
                     return@OnCompleteListener
                 }
-
                 // Get new FCM registration token
                 deviceFCMToken = task.result
 
                 Log.d(TAG, deviceFCMToken)
             })
+    }
 
+    private fun showEnterBioDialog() {
+        val multiPurposeDialog = Dialog(this)
+        multiPurposeDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val dialogViewBinding = EnterBioDialogBinding.inflate(layoutInflater)
+        multiPurposeDialog.setContentView(dialogViewBinding.root)
+        multiPurposeDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        multiPurposeDialog.setCancelable(false)
+        multiPurposeDialog.show()
+        dialogViewBinding.submitButton.setOnClickListener {
+            if (dialogViewBinding.enterBioEditText.text.isNotEmpty()) {
+                multiPurposeDialog.dismiss()
+                registerUserAPI(dialogViewBinding.enterBioEditText.text.toString())
+            } else {
+                Toast.makeText(this, "Must enter about yourself", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

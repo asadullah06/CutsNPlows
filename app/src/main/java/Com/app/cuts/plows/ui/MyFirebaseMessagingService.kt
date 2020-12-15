@@ -1,6 +1,9 @@
 package Com.app.cuts.plows.ui
 
 import Com.app.cuts.plows.R
+import Com.app.cuts.plows.ui.Chat.MessageThreadActivity
+import Com.app.cuts.plows.utils.CommonMethods
+import Com.app.cuts.plows.utils.UPDATE_MESSAGES
 import Com.app.cuts.plows.utils.UPDATE_UI_AGAINST_NOTIFICATION
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -13,6 +16,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import org.json.JSONObject
 
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
@@ -22,17 +26,44 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         Log.d("FCMPayload", remoteMessage.notification.toString())
 
         Log.d("FCMPayload", remoteMessage.data["alert"].toString())
-        sendBroadcast(Intent(UPDATE_UI_AGAINST_NOTIFICATION))
-        sendNotification(remoteMessage.data["alert"].toString())
+        Log.d("FCMPayload", "\n\n API  number =: ${remoteMessage.data["apinumber"].toString()}")
+        var intent: Intent? = null
+        if (remoteMessage.data["apinumber"]?.toInt() == 29) {
+            val extraObject = JSONObject(remoteMessage.data["extra"] as String)
+            val bookingObject = extraObject.getJSONObject("booking")
+            intent = Intent(this, MessageThreadActivity::class.java)
+            intent.putExtra("receiver_id", bookingObject.getString("fld_userid"))
+            intent.putExtra(
+                "user_name",
+                "${bookingObject.getString("fld_fname")} ${bookingObject.getString("fld_lname")}"
+            )
+            if (bookingObject.getInt("fld_role") == 1) {
+                intent.putExtra("user_role", resources.getString(R.string.customer))
+            } else if (bookingObject.getInt("fld_role") == 2) {
+                intent.putExtra("user_role", resources.getString(R.string.service_provider))
+            }
+            intent.putExtra("user_image", bookingObject.getString("fld_profile_pic"))
+            sendBroadcast(Intent(UPDATE_MESSAGES))
+        } else if (remoteMessage.data["apinumber"]?.toInt() == 12 || remoteMessage.data["apinumber"]?.toInt() == 18 || remoteMessage.data["apinumber"]?.toInt() == 16 || remoteMessage.data["apinumber"]?.toInt() == 20 || remoteMessage.data["apinumber"]?.toInt() == 21) {
+            sendBroadcast(Intent(UPDATE_UI_AGAINST_NOTIFICATION))
+        }
+        if (CommonMethods.isActivityVisible())
+            return
+        if (intent == null) {
+            intent = Intent(this, SplashScreenActivity::class.java)
+        }
+        sendNotification(
+            remoteMessage.data["alert"].toString(),
+            intent
+        )
     }
 
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
     }
 
-    private fun sendNotification(messageBody: String = "") {
-        val intent = Intent(this, SplashScreenActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+    private fun sendNotification(messageBody: String = "", intent:Intent?) {
+        intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(
             this, 0 /* Request code */, intent,
             PendingIntent.FLAG_ONE_SHOT

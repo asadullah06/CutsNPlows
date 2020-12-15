@@ -3,6 +3,7 @@ package Com.app.cuts.plows.ui.Dashboard
 import Com.app.cuts.plows.R
 import Com.app.cuts.plows.databinding.HomeScreenActivityBinding
 import Com.app.cuts.plows.ui.BaseActivity
+import Com.app.cuts.plows.utils.UserPreferences
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
@@ -25,15 +26,26 @@ class HomeScreenActivity : BaseActivity() {
         tabAdapter = TabAdapter(supportFragmentManager)
         tabAdapter.addFragment(JobsHistoryFragment(), "Job History")
         tabAdapter.addFragment(HomeScreenFragment(), "Home")
-        tabAdapter.addFragment(MessagingFragment(), "Chat")
+        if (UserPreferences.getClassInstance(this)
+                .getUserRole() == resources.getString(R.string.service_provider)
+        ) {
+            tabAdapter.addFragment(MessagingFragment(), "Chat")
+        }
         tabAdapter.addFragment(ProfileFragment(), "Profile")
 
         builder.viewPager.adapter = tabAdapter
         builder.tabLayout.setupWithViewPager(builder.viewPager)
         builder.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_job_history)
         builder.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_home)
-        builder.tabLayout.getTabAt(2)?.setIcon(R.drawable.chat)
-        builder.tabLayout.getTabAt(3)?.setIcon(R.drawable.ic_profile)
+        if (UserPreferences.getClassInstance(this)
+                .getUserRole() == resources.getString(R.string.service_provider)
+        ) {
+            builder.tabLayout.getTabAt(2)?.setIcon(R.drawable.chat)
+            builder.tabLayout.getTabAt(3)?.setIcon(R.drawable.ic_profile)
+        }else{
+            builder.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_profile)
+        }
+
 
 
 
@@ -51,7 +63,14 @@ class HomeScreenActivity : BaseActivity() {
                 when (position) {
                     0 -> labelTextView?.text = "Job History"
                     1 -> labelTextView?.text = "Home"
-                    2 -> labelTextView?.text = "Chat"
+                    2 -> {
+                        if (UserPreferences.getClassInstance(this@HomeScreenActivity)
+                                .getUserRole() == resources.getString(R.string.service_provider)
+                        ) {
+                            labelTextView?.text = "Chat"
+                        } else
+                            labelTextView?.text = "Profile"
+                    }
                     3 -> labelTextView?.text = "Profile"
                 }
             }

@@ -81,31 +81,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light300"
-                    android:text="@string/day_s"
-                    android:textColor="@color/light_gray" />
-
-                <TextView
-                    android:id="@+id/daysTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_light300"
-                    android:padding="5dp"
-                    android:text="@string/_00"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_light300"
                     android:text="@string/hour_s"
                     android:textColor="@color/light_gray" />
 
@@ -136,6 +111,31 @@
 
                 <TextView
                     android:id="@+id/minuteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light300"
+                    android:padding="5dp"
+                    android:text="@string/_00"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light300"
+                    android:text="@string/second_s"
+                    android:textColor="@color/light_gray" />
+
+                <TextView
+                    android:id="@+id/secondsTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_light300"
@@ -190,6 +190,8 @@
             android:background="@drawable/edit_text_background"
             android:drawableStart="@drawable/ic_doller"
             android:fontFamily="@font/poppins_light300"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
             android:paddingStart="20dp"
             android:paddingTop="10dp"
             android:paddingEnd="20dp"
@@ -207,7 +209,6 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="24dp"
-            android:alpha="0.5"
             android:backgroundTint="@color/green"
             android:fontFamily="@font/poppins_light300"
             android:paddingStart="30dp"
@@ -215,6 +216,7 @@
             android:paddingEnd="10dp"
             android:paddingBottom="10dp"
             android:text="@string/process"
+            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -227,9 +229,9 @@
     <RelativeLayout
         android:id="@+id/ratingLayout"
         android:layout_width="wrap_content"
-        android:visibility="gone"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/innerLayout">
+        android:layout_below="@+id/innerLayout"
+        android:visibility="gone">
 
         <RelativeLayout
             android:id="@+id/user_details_layout"
@@ -286,40 +288,49 @@
             android:id="@+id/ratingbarView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srb_borderColor="@color/light_gray"
+            android:layout_below="@+id/user_details_layout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:layout_below="@+id/user_details_layout"
+            app:srb_borderColor="@color/light_gray"
             app:srb_fillColor="@color/yellow"
             app:srb_numberOfStars="5"
-            app:srb_rating="3"
+            app:srb_rating="0"
             app:srb_starSize="40dp"
             app:srb_stepSize="0.5" />
+
         <TextView
             android:id="@+id/labelTextView"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingbarView"
+            android:fontFamily="@font/poppins_light300"
+            android:text="@string/write_a_review"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:fontFamily="@font/poppins_light300"
-            android:layout_below="@+id/ratingbarView"
-            android:textStyle="bold"
-            android:text="@string/write_a_review"
-            android:layout_height="wrap_content"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/reviewEditText"
-            android:minLines="5"
-            android:layout_below="@+id/labelTextView"
             android:layout_width="match_parent"
-            android:textColor="@color/gray"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelTextView"
+            android:background="@drawable/bio_edit_text_bg"
+            android:gravity="start|top"
+            android:hint="@string/please_add_remarks_here_optional"
+            android:minLines="3"
+            android:padding="10dp"
+            android:textAlignment="gravity"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
+
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_below="@+id/reviewEditText"
             android:layout_marginTop="10dp"
-            android:background="@color/gray"
-            android:layout_height="1dp"/>
+            android:background="@color/gray" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/submitButton"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -329,15 +340,14 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
-            android:alpha="0.5"
             android:backgroundTint="@color/green"
-            android:enabled="false"
             android:fontFamily="@font/poppins_light300"
             android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingEnd="10dp"
             android:paddingBottom="10dp"
             android:text="@string/submit"
+            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"

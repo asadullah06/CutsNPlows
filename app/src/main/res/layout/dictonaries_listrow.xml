@@ -56,6 +56,24 @@
             app:layout_constraintTop_toBottomOf="@+id/providerNameTextView"
             tools:text="Provider" />
 
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/ratingbarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintStart_toEndOf="@+id/profileImageCardView"
+            app:layout_constraintTop_toBottomOf="@+id/providerRoleTextView"
+            app:srb_borderColor="@android:color/transparent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            app:srb_starBackgroundColor = "@color/white"
+            app:srb_fillColor="@color/yellow"
+            app:srb_numberOfStars="5"
+            app:srb_rating="0"
+            app:srb_isIndicator="true"
+            app:srb_starSize="15dp"
+            app:srb_stepSize="0.5" />
+
         <ImageView
             android:id="@+id/messageProviderImageView"
             android:layout_width="wrap_content"

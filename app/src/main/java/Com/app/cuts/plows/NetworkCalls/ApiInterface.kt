@@ -18,6 +18,7 @@ interface ApiInterface {
         @Field("fld_password") userPassword: String,
         @Field("confirm_password") userConfirmPassword: String,
         @Field("fld_role") userRole: Int,
+        @Field("fld_bio") providerBio:String,
         @Field("fld_device_token") deviceToken: String = "",
         @Field("fld_lat") userLat: Double = 0.0,
         @Field("fld_lng") userLong: Double = 0.0
@@ -42,6 +43,7 @@ interface ApiInterface {
         @Field("fld_email") userEmail: String,
         @Field("fld_password") userPassword: String,
         @Field("fld_device_token") deviceToken: String = "",
+        @Field("fld_device_type") deviceType: String,
         @Field("fld_lat") userLat: Double = 0.0,
         @Field("fld_lng") userLong: Double = 0.0
     ): Call<ResponseBody?>
@@ -99,7 +101,8 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("findprovider")
     fun findProvider(
-        @Field("fld_bid") bookingId: Int,
+        @Field("fld_radius") radius: String,
+        @Field("fld_bid") bookingId: Int
     ): Call<ResponseBody?>
 
     @FormUrlEncoded
@@ -165,8 +168,90 @@ interface ApiInterface {
     ): Call<ResponseBody?>
 
     @FormUrlEncoded
-    @POST("completerequest")
+    @POST("updatebooking")
     fun acceptJobFinishedRequest(
         @Field("fld_bid") bookingId: Int
     ): Call<ResponseBody?>
+
+    @FormUrlEncoded
+    @POST("requestpayment")
+    fun providerRequestPayment(
+        @Field("fld_userid") userId: String,
+        @Field("fld_bid") bookingId: Int,
+        @Field("fld_amount") paymentAmount: Float
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("acceptpayment")
+    fun customerAcceptPaymentRequest(
+        @Field("fld_userid") userId: String,
+        @Field("fld_bid") bookingId: Int
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("providerreview")
+    fun customerReviewProvider(
+        @Field("fld_bid") bookingId: Int,
+        @Field("fld_rating") rating: Float,
+        @Field("fld_review") reviewString: String,
+        @Field("fld_userid") userId: String
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("customerreview")
+    fun providerReviewCustomer(
+        @Field("fld_bid") bookingId: Int,
+        @Field("fld_rating") rating: Float,
+        @Field("fld_review") reviewString: String,
+        @Field("fld_userid") userId: String
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("logout")
+    fun logoutUser(
+        @Field("fld_userid") userId: String
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("providerbookinghistory")
+    fun getProviderJobHistory(
+        @Field("fld_userid") userId: String
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("customerbookinghistory")
+    fun getCustomerJobHistory(
+        @Field("fld_userid") userId: String
+    ): Call<ResponseBody>
+
+    @GET("/maps/api/directions/json")
+    fun getDirectionJson(
+        @Query("origin") origin: String,
+        @Query("destination") destination: String,
+        @Query("sensor") sensor: Boolean,
+        @Query("mode") mode: String,
+        @Query("key") apiKey: String
+
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("chatlist")
+    fun getConversationsList(
+        @Field("fld_userid") userId: String
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("getmessages")
+    fun getMessagesThread(
+        @Field("fld_sender_id") senderId: String,
+        @Field("fld_receiver_id") receiverId: String
+    ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("messagesend")
+    fun sendMessage(
+        @Field("fld_message") message: String,
+        @Field("fld_sender_id") senderId: String,
+        @Field("fld_receiver_id") receiverId: String
+    ): Call<ResponseBody>
 }

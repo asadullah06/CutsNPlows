@@ -7,6 +7,10 @@ data class UserDetailsModel(
     val userRole: String,
     val userContactNo: String,
     val userProfileImage: String,
+    val providerRating: Float,
+    val providerUserId: String = "",
+    val providerStatus: String = "",
     val userDistance: Double = 0.0,
-    val providerUserId: String = ""
+
+
 ) : Serializable

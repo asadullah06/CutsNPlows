@@ -1,6 +1,7 @@
 package Com.app.cuts.plows.NetworkCalls
 
 import Com.app.cuts.plows.utils.BASE_URL
+import Com.app.cuts.plows.utils.GOOGLE_MAP_BASE_URL
 import android.content.Context
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -30,7 +31,7 @@ class ApiClient {
         }
 
         fun getClient(context: Context): Retrofit? {
-            if (retrofit == null) {
+//            if (retrofit == null) {
                 retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(getOkHttpClient())
@@ -40,7 +41,21 @@ class ApiClient {
                         )
                     )
                     .build()
-            }
+//            }
+            return retrofit
+        }
+        fun getGoogleMapClient():Retrofit?{
+//            if (retrofit == null) {
+                retrofit = Retrofit.Builder()
+                    .baseUrl(GOOGLE_MAP_BASE_URL)
+                    .client(getOkHttpClient())
+                    .addConverterFactory(
+                        GsonConverterFactory.create(
+                            GsonBuilder().serializeNulls().setLenient().create()
+                        )
+                    )
+                    .build()
+//            }
             return retrofit
         }
     }

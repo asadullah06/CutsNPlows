@@ -85,8 +85,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         val call = apiService?.loginUser(
             binding.editTextTextEmailAddress.text.toString(),
             binding.editTextTextPassword.text.toString(),
-            userFCMToken
-        )
+            userFCMToken,
+        "Andriod")
         binding.progressBar.visibility = View.VISIBLE
         call?.enqueue(object : Callback<ResponseBody?> {
             override fun onResponse(call: Call<ResponseBody?>, response: Response<ResponseBody?>) {

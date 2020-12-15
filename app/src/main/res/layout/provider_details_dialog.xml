@@ -14,7 +14,7 @@
         android:paddingStart="10dp"
         android:paddingTop="20dp"
         android:paddingEnd="10dp"
-        android:paddingBottom="20dp">
+        android:paddingBottom="10dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/imageCardView"
@@ -62,6 +62,23 @@
             android:textColor="@color/light_gray"
             android:textSize="12sp" />
 
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/ratingbarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userRoleTextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/imageCardView"
+            app:srb_borderColor="@android:color/transparent"
+            app:srb_fillColor="@color/yellow"
+            app:srb_isIndicator="true"
+            app:srb_numberOfStars="5"
+            app:srb_rating="0"
+            app:srb_starBackgroundColor="@color/gray"
+            app:srb_starSize="15dp"
+            app:srb_stepSize="0.5" />
+
         <LinearLayout
             android:id="@+id/contact_layout"
             android:layout_width="wrap_content"
@@ -105,7 +122,7 @@
             android:id="@+id/otherButtonsLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageCardView"
+            android:layout_below="@+id/ratingbarView"
             android:layout_alignParentEnd="true"
             android:orientation="horizontal"
             android:visibility="gone">
@@ -155,7 +172,7 @@
             android:id="@+id/acceptRejectLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/distanceTextView"
+            android:layout_below="@+id/ratingbarView"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp">
 
@@ -183,8 +200,8 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:visibility="gone"
                 android:textSize="12sp"
+                android:visibility="gone"
                 app:cornerRadius="30dp" />
 
             <com.google.android.material.button.MaterialButton

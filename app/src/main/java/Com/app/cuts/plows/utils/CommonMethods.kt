@@ -10,15 +10,35 @@ import android.os.Build
 import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Patterns
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class CommonMethods {
+
+
     companion object {
+        private var activityVisible = false
+
+        fun isActivityVisible(): Boolean {
+            return activityVisible
+        }
+
+        fun activityResumed() {
+            activityVisible = true
+        }
+
+        fun activityPausedOrFinished() {
+            activityVisible = false
+        }
+
+
         fun isValidEmail(target: CharSequence): Boolean {
             return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()
         }
@@ -62,6 +82,30 @@ class CommonMethods {
             }
             return bitmapImage
         }
+
+        /**
+         * Convert one date format string  to another date format string in android
+         *
+         * @param inputDateFormat Input SimpleDateFormat
+         * @param outputDateFormat Output SimpleDateFormat
+         * @param inputDate input Date String
+         * @throws ParseException
+         */
+        @Throws(ParseException::class)
+        fun formatDateFromDateString(
+            inputDateFormat: String, outputDateFormat: String,
+            inputDate: String
+        ): String {
+            val mParsedDate: Date
+            val mOutputDateString: String
+            val mInputDateFormat = SimpleDateFormat(inputDateFormat, Locale.getDefault())
+            val mOutputDateFormat = SimpleDateFormat(outputDateFormat, Locale.getDefault())
+            mParsedDate = mInputDateFormat.parse(inputDate)
+            mOutputDateString = mOutputDateFormat.format(mParsedDate)
+            return mOutputDateString
+        }
+
+
     }
 
 

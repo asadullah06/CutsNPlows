@@ -36,7 +36,7 @@ class UsersDirectoryActivity : BaseActivity(), View.OnClickListener {
         supportActionBar?.title = "Available provider(s)"
 
 
-        binding.editTextTextEmailAddress.addTextChangedListener(object : TextWatcher {
+        binding.editTextSearchUser.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(
                 charSequence: CharSequence,
                 arg1: Int,
@@ -51,7 +51,7 @@ class UsersDirectoryActivity : BaseActivity(), View.OnClickListener {
                 } else {
                     if (charSequence.isNotEmpty()) {
                         if (this@UsersDirectoryActivity::providersListingAdapter.isLateinit) {
-                            providersListingAdapter.filter.filter(binding.editTextTextEmailAddress.text)
+                            providersListingAdapter.filter.filter(binding.editTextSearchUser.text)
                         }
                     }
                 }
@@ -61,7 +61,7 @@ class UsersDirectoryActivity : BaseActivity(), View.OnClickListener {
             override fun afterTextChanged(arg0: Editable) {}
         })
         if (intent.getStringExtra("className") == "HomeScreenFragment") {
-            binding.editTextTextEmailAddress.visibility = View.GONE
+            binding.editTextSearchUser.visibility = View.GONE
             binding.closeBookingButton.visibility = View.VISIBLE
             binding.closeBookingButton.setOnClickListener(this)
             providersList =
@@ -97,7 +97,6 @@ class UsersDirectoryActivity : BaseActivity(), View.OnClickListener {
             R.id.closeBookingButton -> {
                 cancelRequestedBookingAPI()
             }
-
         }
     }
 
@@ -124,7 +123,8 @@ class UsersDirectoryActivity : BaseActivity(), View.OnClickListener {
                                 userObject.getString("fld_fname") + " " + userObject.getString("fld_lname"),
                                 userRole,
                                 userObject.getString("fld_contact_number"),
-                                userObject.getString("fld_profile_pic") ?: ""
+                                userObject.getString("fld_profile_pic") ?: "",
+                                userObject.getDouble("rating").toFloat()
                             )
                         )
                     }

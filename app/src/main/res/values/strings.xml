@@ -240,4 +240,15 @@ kind.</string>
     <string name="close_booking">cancel search provider(s)</string>
     <string name="process">Process</string>
     <string name="write_a_review">Write a review?</string>
+    <string name="job_in_progress">Job in Progress</string>
+    <string name="arrive">Arrived</string>
+    <string name="collect_cash">Collect Cash</string>
+    <string name="pay_cash">Pay Cash</string>
+    <string name="answer_the_provider">Answer the provider</string>
+    <string name="enter_bio_title">Enter details about yourself</string>
+    <string name="enter_bio">Enter bio</string>
+    <string name="please_add_remarks_here_optional">Please add remarks here (optional)</string>
+    <string name="enter_radius_title">Enter Radius(KMs) for search service provider</string>
+    <string name="radius_in_kilometers">radius in kilometers</string>
+    <string name="second_s">Second(s)</string>
 </resources>

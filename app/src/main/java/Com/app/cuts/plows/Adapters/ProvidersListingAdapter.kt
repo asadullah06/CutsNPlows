@@ -4,8 +4,8 @@ import Com.app.cuts.plows.Models.UserDetailsModel
 import Com.app.cuts.plows.NetworkCalls.ApiClient
 import Com.app.cuts.plows.NetworkCalls.ApiInterface
 import Com.app.cuts.plows.R
+import Com.app.cuts.plows.ui.Chat.MessageThreadActivity
 import Com.app.cuts.plows.ui.UsersDirectoryActivity
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.iarcuschin.simpleratingbar.SimpleRatingBar
 import com.squareup.picasso.Picasso
 import okhttp3.ResponseBody
 import org.json.JSONObject
@@ -34,13 +35,12 @@ class ProvidersListingAdapter(
     private val mFilter = ItemFilter()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.dictonaries_listrow, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.dictonaries_listrow, parent, false)
         return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binditem(providersList[position], context)
+        holder.binditem(providersList[position], position, context)
     }
 
     override fun getItemCount(): Int {
@@ -48,9 +48,8 @@ class ProvidersListingAdapter(
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun binditem(userDetailsModel: UserDetailsModel, context: Context) {
-            val providerProfilePicture =
-                itemView.findViewById<ImageView>(R.id.providerProfilePicture)
+        fun binditem(userDetailsModel: UserDetailsModel, position: Int, context: Context) {
+            val providerProfilePicture = itemView.findViewById<ImageView>(R.id.providerProfilePicture)
             val providerNameTextView = itemView.findViewById<TextView>(R.id.providerNameTextView)
             val providerRoleTextView = itemView.findViewById<TextView>(R.id.providerRoleTextView)
             val providerContactButton = itemView.findViewById<ImageView>(R.id.callProviderImageView)
@@ -59,6 +58,26 @@ class ProvidersListingAdapter(
             val providerDistanceTextView =
                 itemView.findViewById<TextView>(R.id.providerDistanceTextView)
             val sendRequestToProviderButton = itemView.findViewById<Button>(R.id.sendRequestButton)
+            val ratingView = itemView.findViewById<SimpleRatingBar>(R.id.ratingbarView)
+            ratingView.rating = userDetailsModel.providerRating
+            if (userDetailsModel.providerStatus.isNotEmpty() && !userDetailsModel.providerStatus.equals(
+                    "null",
+                    false
+                ) && (userDetailsModel.providerStatus == "0" || userDetailsModel.providerStatus == "2")
+            ) {
+                if (userDetailsModel.providerStatus == "0")
+                    sendRequestToProviderButton.text = "request pending"
+//                    providerRoleTextView.text = "${userDetailsModel.userRole}'s\nrequest pending"
+                else if (userDetailsModel.providerStatus == "2")
+                    sendRequestToProviderButton.text = "request rejected"
+//                    providerRoleTextView.text = "${userDetailsModel.userRole}\nrequest rejected"
+                sendRequestToProviderButton.isEnabled = false
+                sendRequestToProviderButton.alpha = 0.5f
+            } else {
+                providerRoleTextView.text = userDetailsModel.userRole
+                sendRequestToProviderButton.isEnabled = true
+                sendRequestToProviderButton.alpha = 1f
+            }
             if (userDetailsModel.userProfileImage.isNotEmpty() && !userDetailsModel.userProfileImage.equals(
                     "null",
                     ignoreCase = true
@@ -73,7 +92,6 @@ class ProvidersListingAdapter(
                     .into(providerProfilePicture)
             }
             providerNameTextView.text = userDetailsModel.userName
-            providerRoleTextView.text = userDetailsModel.userRole
             providerContactButton.setOnClickListener {
                 val phoneIntent = Intent(
                     Intent.ACTION_DIAL,
@@ -91,6 +109,26 @@ class ProvidersListingAdapter(
                 sendRequestToProviderButton.visibility = View.VISIBLE
                 sendRequestToProviderButton.setOnClickListener {
                     sendRequestToProviderAPI(userDetailsModel.providerUserId)
+                }
+                providerMessageButton.setOnClickListener {
+                    val intent = Intent(context, MessageThreadActivity::class.java)
+                    intent.putExtra("receiver_id", providersList[position].providerUserId)
+                    intent.putExtra("user_name",providersList[position].userName)
+                    intent.putExtra("user_role",providersList[position].userRole)
+                    intent.putExtra("user_image",providersList[position].userProfileImage)
+                    context.startActivity(intent)
+                }
+            }
+
+            //when call is from MessagingFragment then this click is used
+            if (callerName.isNotEmpty() && callerName == "MessagingFragment") {
+                itemView.setOnClickListener {
+                    val intent = Intent(context, MessageThreadActivity::class.java)
+                    intent.putExtra("receiver_id", providersList[position].providerUserId)
+                    intent.putExtra("user_name",providersList[position].userName)
+                    intent.putExtra("user_role",providersList[position].userRole)
+                    intent.putExtra("user_image",providersList[position].userProfileImage)
+                    context.startActivity(intent)
                 }
             }
         }
@@ -156,16 +194,12 @@ class ProvidersListingAdapter(
                     context.setResult(101)
                     context.finish()
                 }
-
             }
 
             override fun onFailure(call: Call<ResponseBody?>, throwable: Throwable) {
                 context.hideProgressBar()
                 Log.d(TAG, "Error Message: " + throwable.localizedMessage)
             }
-
         })
     }
-
-
 }
